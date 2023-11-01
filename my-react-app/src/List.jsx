@@ -1,9 +1,19 @@
-function List() {
-  const fruits = ['apple', 'orange', 'banana', 'coconut', 'pineapple'];
+function List(props) {
+  const category = props.category;
+  const itemList = props.items;
 
-  const listItems = fruits.map((fruit) => <li>{fruit}</li>);
+  const listItems = itemList.map((item) => (
+    <li key={item.id}>
+      {item.name}: <b>{item.calories}</b>
+    </li>
+  ));
 
-  return <ol>{listItems}</ol>;
+  return (
+    <>
+      <h3>{category}</h3>
+      <ol>{listItems}</ol>
+    </>
+  );
 }
 
 export default List;
